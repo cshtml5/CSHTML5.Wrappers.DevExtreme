@@ -355,22 +355,22 @@ To do so, please follow the tutorial at: http://www.cshtml5.com"); //todo: put t
 
 		public void SetSearchPanelData(SearchPanelData searchPanelData)
 		{
-			option("searchPanel", searchPanelData);
+			option("searchPanel", Utils.ToJSObject(searchPanelData));
 		}
 
 		public void SetGroupPanelData(GroupPanelData groupPanelData)
 		{
-			option("groupPanel", groupPanelData);
+			option("groupPanel", Utils.ToJSObject(groupPanelData));
 		}
 
 		public void SetDataGridSelectionData(dxDataGridSelection dataGridSelection)
 		{
-			option("selection", dataGridSelection);
+			option("selection", Utils.ToJSObject(dataGridSelection));
 		}
 
 		public void SetDataGridEditing(dxDataGridEditing gridBaseEditing)
 		{
-			option("editing", gridBaseEditing);
+			option("editing", Utils.ToJSObject(gridBaseEditing));
 		}
 
 		private void ValueModifiedCallback()
