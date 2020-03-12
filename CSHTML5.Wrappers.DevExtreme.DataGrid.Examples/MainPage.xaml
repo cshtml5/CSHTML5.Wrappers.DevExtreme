@@ -1,0 +1,16 @@
+﻿<Page
+    x:Class="CSHTML5.Wrappers.DevExtreme.DataGrid.Examples.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CSHTML5.Wrappers.DevExtreme.DataGrid.Examples"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+				
+	<StackPanel xmlns:DataGrid="clr-namespace:DevExtreme_DataGrid.DevExpress.ui;assembly=CSHTML5.Wrappers.DevExtreme.DataGrid">
+		<DataGrid:dxDataGrid x:Name="DataGrid" Height="300"/>
+		<DataGrid x:Name="DataGrid2"/>
+	</StackPanel>
+			
+</Page>

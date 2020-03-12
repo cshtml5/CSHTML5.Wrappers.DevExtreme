@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Wrappers.DevExtreme.DataGrid", "CSHTML5.Wrappers.DevExtreme.DataGrid\CSHTML5.Wrappers.DevExtreme.DataGrid.csproj", "{A37E8FE6-7A6E-4B25-A8C9-B73A87F9BBEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Wrappers.DevExtreme.DataGrid.Examples", "CSHTML5.Wrappers.DevExtreme.DataGrid.Examples\CSHTML5.Wrappers.DevExtreme.DataGrid.Examples.csproj", "{7294DC40-B04C-400D-BBC2-7683A2855A99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Wrappers.DevExtreme.Common", "CSHTML5.Wrappers.DevExtreme.Common\CSHTML5.Wrappers.DevExtreme.Common.csproj", "{6B18FBDB-8A8F-4B63-8EA2-B30D24695E03}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NUGET_PACKAGES", "NUGET_PACKAGES", "{3518A915-0D2D-4EF4-AC31-29F2AF1F4A7C}"
+	ProjectSection(SolutionItems) = preProject
+		NUGET_PACKAGES\Build NuGet packages.bat = NUGET_PACKAGES\Build NuGet packages.bat
+		NUGET_PACKAGES\CSHTML5.Wrappers.DevExtreme.nuspec = NUGET_PACKAGES\CSHTML5.Wrappers.DevExtreme.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExtLibs", "ExtLibs", "{8A57EDCA-55F5-48C9-ADDB-CFED34FA93A7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{D76D98D0-3793-4050-8975-390CA1679E10}"
+	ProjectSection(SolutionItems) = preProject
+		ExtLibs\NuGet\nuget.exe = ExtLibs\NuGet\nuget.exe
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A37E8FE6-7A6E-4B25-A8C9-B73A87F9BBEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A37E8FE6-7A6E-4B25-A8C9-B73A87F9BBEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A37E8FE6-7A6E-4B25-A8C9-B73A87F9BBEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A37E8FE6-7A6E-4B25-A8C9-B73A87F9BBEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7294DC40-B04C-400D-BBC2-7683A2855A99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7294DC40-B04C-400D-BBC2-7683A2855A99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7294DC40-B04C-400D-BBC2-7683A2855A99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7294DC40-B04C-400D-BBC2-7683A2855A99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B18FBDB-8A8F-4B63-8EA2-B30D24695E03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B18FBDB-8A8F-4B63-8EA2-B30D24695E03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B18FBDB-8A8F-4B63-8EA2-B30D24695E03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B18FBDB-8A8F-4B63-8EA2-B30D24695E03}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D76D98D0-3793-4050-8975-390CA1679E10} = {8A57EDCA-55F5-48C9-ADDB-CFED34FA93A7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1EDA7031-9602-451F-A476-59BE7D36B14F}
+	EndGlobalSection
+EndGlobal
