@@ -223,6 +223,7 @@ gridContainer.id = 'gridContainer';
                     }
 				);
 				base.JSComponent_Loaded(sender, e);
+                CheckErrorandDisplayItInsteadOfEditorIfNeeded();
 			}
 			else
 			{
@@ -234,6 +235,14 @@ To do so, please follow the tutorial at: http://www.cshtml5.com"); //todo: put t
 			}
 		}
 
+		async void CheckErrorandDisplayItInsteadOfEditorIfNeeded()
+		{
+			if (!await this.JSInstanceLoaded)
+			{
+				this.Html = @"The libraries for the DevExtreme DataGrid could not be found. Make sure you have added them in your project at the location you specified in the Configuration.";
+				MessageBox.Show(@"The libraries for the DevExtreme DataGrid could not be found. Make sure you have added them in your project at the location you specified in the Configuration.");
+			}
+		}
 
 		private List<string> PropertyNames { get; set; }
 
