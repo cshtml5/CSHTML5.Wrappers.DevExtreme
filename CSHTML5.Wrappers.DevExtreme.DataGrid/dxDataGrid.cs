@@ -176,7 +176,11 @@ namespace DevExtreme_DataGrid.DevExpress.ui
 		public static Configuration Configuration = new Configuration();
 
 		static JSLibrary _jsLibrary;
+
 		public override JSLibrary JSLibrary { get { return _jsLibrary; } }
+
+		// Used to avoid confilct with other jQueryVersion
+		static object _jQueryVersion;
 
 		partial void Initialize()
 		{
@@ -184,14 +188,19 @@ namespace DevExtreme_DataGrid.DevExpress.ui
 		}
 		protected override void InitializeJSInstance()
 		{
+			if(_jQueryVersion == null)
+			{
+				_jQueryVersion = Interop.ExecuteJavaScript(@"$.noConflict()");
+			}
+
 			Interop.ExecuteJavaScript(@"
 var gridContainer = $0;
 gridContainer.id = 'gridContainer';
 ", (new JSObject(this.DomElement)).ToJavaScriptObject());
 
-			Interop.ExecuteJavaScript(@"jQuery('#gridContainer').dxDataGrid({});");
+			Interop.ExecuteJavaScript(@"$0('#gridContainer').dxDataGrid({});", _jQueryVersion);
 
-			UnderlyingJSInstance = Interop.ExecuteJavaScript(@"jQuery('#gridContainer').dxDataGrid('instance')");
+			UnderlyingJSInstance = Interop.ExecuteJavaScript(@"$0('#gridContainer').dxDataGrid('instance')", _jQueryVersion);
 			SetOnEditorPreparedOption();
 			SetOnRowRemovedOption();
 			SetOnRowInsertedOption();
@@ -218,7 +227,7 @@ gridContainer.id = 'gridContainer';
                     },
 					js: new Interop.ResourceFile[]
 					{
-						new Interop.ResourceFile("jquery", Configuration.LocationOfJquery), // e.g. "ms-appx:///CSHTML5.Wrappers.DevExtreme.DataGrid/scripts/jquery.min.js"
+						new Interop.ResourceFile("jQueryDevExtreme", Configuration.LocationOfJquery), // e.g. "ms-appx:///CSHTML5.Wrappers.DevExtreme.DataGrid/scripts/jquery.min.js"
                         new Interop.ResourceFile("dx", Configuration.LocationOfDXAllJS) // e.g. "ms-appx:///CSHTML5.Wrappers.DevExtreme.DataGrid/scripts/dx.all.js"
                     }
 				);
