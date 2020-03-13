@@ -198,7 +198,7 @@ declare module DevExpress.ui
         /** Adds a new column. */
         addColumn(columnOptions: any | string): void;
         /** Adds an empty data row and switches it to the editing state. */
-        addRow(): void;
+        //addRow(): void;
         /** Ungroups grid records. */
         clearGrouping(): void;
         /** Collapses master rows or groups of a specific level. */
