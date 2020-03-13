@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 
 using System.IO;
 using System.Linq;
@@ -33,8 +34,20 @@ namespace CSHTML5.Wrappers.DevExtreme.DataGrid.Examples
 
         private async void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-            await DataGrid.JSInstanceLoaded; // Wait until the underlying JS instance of the DevExtreme DataGrid has been loaded
-
+            SelectionModeSingle.Content = "Single";
+            SelectionModeMultiple.Content = "Multiple";
+            LoadingPleaseWaitMessage.Visibility = Visibility.Visible;
+            bool result = await DataGrid.JSInstanceLoaded;
+            if (result)
+            {
+                LoadingPleaseWaitMessage.Visibility = Visibility.Collapsed;
+                DataGrid.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                DataGrid.Visibility = Visibility.Visible;
+                LoadingPleaseWaitMessage.Visibility = Visibility.Collapsed;
+            }
             SetColumnsData();
 
             SetDataSource();
@@ -42,10 +55,7 @@ namespace CSHTML5.Wrappers.DevExtreme.DataGrid.Examples
 
         private async void MainPage_Unloaded(object sender, RoutedEventArgs e)
         {
-            await DataGrid.JSInstanceLoaded; // Wait until the underlying JS instance of the DevExtreme DataGrid has been loaded
-
             DataGrid.UnsubscribeFromDataSourceEvent();
-
         }
 
         private void SetDataSource()
@@ -112,5 +122,163 @@ namespace CSHTML5.Wrappers.DevExtreme.DataGrid.Examples
 
             DataGrid.Columns = columns;
         }
+
+        void SearchPanel_Show(object sender, RoutedEventArgs e)
+        {
+            DataGrid.SearchPanel.visible = true;
+
+            DataGrid.SetSearchPanelDataOption(DataGrid.SearchPanel);
+        }
+
+        void SearchPanel_Hide(object sender, RoutedEventArgs e)
+        {
+            DataGrid.SearchPanel.visible = false;
+
+            DataGrid.SetSearchPanelDataOption(DataGrid.SearchPanel);
+        }
+
+        void Grouping_Enable(object sender, RoutedEventArgs e)
+        {
+            DataGrid.GroupPanelData.visible = true;
+
+            DataGrid.SetGroupPanelDataOption(DataGrid.GroupPanelData);
+        }
+
+        void Grouping_Disable(object sender, RoutedEventArgs e)
+        {
+            DataGrid.GroupPanelData.visible = false;
+
+            DataGrid.SetGroupPanelDataOption(DataGrid.GroupPanelData);
+        }
+
+        void ColumnsReordering_Enable(object sender, RoutedEventArgs e)
+        {
+            DataGrid.AllowColumnReordering = true;
+        }
+
+        void ColumnsReordering_Disable(object sender, RoutedEventArgs e)
+        {
+            DataGrid.AllowColumnReordering = false;
+        }
+
+        void ColorAlternation_Enable(object sender, RoutedEventArgs e)
+        {
+            DataGrid.RowAlternationEnabled = true;
+        }
+
+        void ColorAlternation_Disable(object sender, RoutedEventArgs e)
+        {
+            DataGrid.RowAlternationEnabled = false;
+        }
+
+        void ShowBorder_Enable(object sender, RoutedEventArgs e)
+        {
+            DataGrid.ShowBorders = true;
+        }
+
+        void ShowBorder_Disable(object sender, RoutedEventArgs e)
+        {
+            DataGrid.ShowBorders = false;
+        }
+
+        void AddItem_Click(object sender, RoutedEventArgs e)
+        {
+            Employee newEmployee = new Employee(4, "Greta", "Sims", new DateTime(1998, 04, 23));
+
+            DataGrid.AddObjectToDataSource(newEmployee);
+        }
+
+        void EnableTwoWayBinding_Click(object sender, RoutedEventArgs e)
+        {
+            DataGrid2.Visibility = Visibility.Visible;
+            DataGrid2.ItemsSource = DataGrid.DataSource;
+        }
+
+        void Adding_Enable(object sender, RoutedEventArgs e)
+        {
+            DataGrid.DataGridEditing.allowAdding = true;
+            DataGrid.DataGridEditing.allowUpdating = true;
+            DataGrid.SetDataGridEditingOption(DataGrid.DataGridEditing);
+        }
+
+        void Adding_Disable(object sender, RoutedEventArgs e)
+        {
+            DataGrid.DataGridEditing.allowAdding = false;
+            DataGrid.DataGridEditing.allowUpdating = false;
+            DataGrid.SetDataGridEditingOption(DataGrid.DataGridEditing);
+        }
+
+        void Updating_Enable(object sender, RoutedEventArgs e)
+        {
+            DataGrid.DataGridEditing.allowUpdating = true;
+            DataGrid.SetDataGridEditingOption(DataGrid.DataGridEditing);
+        }
+
+        void Updating_Disable(object sender, RoutedEventArgs e)
+        {
+            DataGrid.DataGridEditing.allowUpdating = false;
+            DataGrid.SetDataGridEditingOption(DataGrid.DataGridEditing);
+        }
+
+        void Deleting_Enable(object sender, RoutedEventArgs e)
+        {
+            DataGrid.DataGridEditing.allowDeleting = true;
+            DataGrid.SetDataGridEditingOption(DataGrid.DataGridEditing);
+        }
+
+        void Deleting_Disable(object sender, RoutedEventArgs e)
+        {
+            DataGrid.DataGridEditing.allowDeleting = false;
+            DataGrid.SetDataGridEditingOption(DataGrid.DataGridEditing);
+        }
+
+        void SelectionModeSingle_Checked(object sender, RoutedEventArgs e)
+        {
+            DataGrid.DataGridSelection.mode = "single";
+            DataGrid.SetDataGridSelectionDataOption(DataGrid.DataGridSelection);
+
+            GetSelectedItemButton.Visibility = Visibility.Visible;
+            GetSelectedItemsButton.Visibility = Visibility.Collapsed;
+        }
+
+        void SelectionModeMultiple_Checked(object sender, RoutedEventArgs e)
+        {
+            DataGrid.DataGridSelection.mode = "multiple";
+            DataGrid.SetDataGridSelectionDataOption(DataGrid.DataGridSelection);
+
+            GetSelectedItemButton.Visibility = Visibility.Collapsed;
+            GetSelectedItemsButton.Visibility = Visibility.Visible;
+        }
+
+        void GetSelectedItem_Click(object sender, RoutedEventArgs e)
+        {
+            object selectedItem = DataGrid.SelectedItem;
+
+            if(selectedItem is IFormattable)
+            {
+                IFormattable selectedItemAsIFormattable = (IFormattable)selectedItem;
+                MessageBox.Show(selectedItemAsIFormattable.ToString("", CultureInfo.CurrentCulture));
+            }
+        }
+
+        void GetSelectedItems_Click(object sender, RoutedEventArgs e)
+        {
+            List<object> selectedItems = DataGrid.SelectedItems;
+
+            string toDisplay = "";
+
+            foreach(object selectedItem in selectedItems)
+            {
+                if (selectedItem is IFormattable)
+                {
+                    IFormattable selectedItemAsIFormattable = (IFormattable)selectedItem;
+                    toDisplay += selectedItemAsIFormattable.ToString("", CultureInfo.CurrentCulture);
+                    toDisplay += "\n";
+                }
+            }
+
+            MessageBox.Show(toDisplay);
+        }
     }
 }
+ 

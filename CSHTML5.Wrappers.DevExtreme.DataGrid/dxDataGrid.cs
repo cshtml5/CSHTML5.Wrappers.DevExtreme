@@ -58,12 +58,11 @@ namespace DevExtreme_DataGrid.DevExpress.ui
 			set
 			{
 				_searchPanel = value;
-				SetSearchPanelData(_searchPanel);
+				SetSearchPanelDataOption(_searchPanel);
 			}
 		}
 
 		private GroupPanelData _groupPanelData;
-
 		public GroupPanelData GroupPanelData
 		{
 			get
@@ -73,7 +72,7 @@ namespace DevExtreme_DataGrid.DevExpress.ui
 			set
 			{
 				_groupPanelData = value;
-				SetGroupPanelData(_groupPanelData);
+				SetGroupPanelDataOption(_groupPanelData);
 			} 
 		}
 
@@ -87,7 +86,7 @@ namespace DevExtreme_DataGrid.DevExpress.ui
 			set
 			{
 				_dataGridSelection = value;
-				SetDataGridSelectionData(_dataGridSelection);
+				SetDataGridSelectionDataOption(_dataGridSelection);
 			}
 		}
 
@@ -101,7 +100,7 @@ namespace DevExtreme_DataGrid.DevExpress.ui
 			set
 			{
 				_dataGridEditing = value;
-				SetDataGridEditing(_dataGridEditing);
+				SetDataGridEditingOption(_dataGridEditing);
 			}
 		}
 
@@ -147,28 +146,31 @@ namespace DevExtreme_DataGrid.DevExpress.ui
 			}
 		}
 
-		//public object SelectedItem
-		//{
-		//	get
-		//	{
-		//		return null;
-		//	}
-		//}
-
-		//public List<object> SelectedItems
-		//{
-		//	get
-		//	{
-		//		List<object> selectedItems = new List<object>();
-		//		var itemsList = Interop.ExecuteJavaScript(@"$0.getSelectedRowsData()", UnderlyingJSInstance);
-		//		int itemListLength = Convert.ToInt32(Interop.ExecuteJavaScript(@"$0.length", itemsList));
-		//		for (int i = 0; i < itemListLength; i++)
-		//		{
-		//			selectedItems.Add(Interop.ExecuteJavaScript(@"$0[$1]", itemsList, i));
-		//		}
-		//		return selectedItems;
-		//	}
-		//}
+		public object SelectedItem
+		{
+			get
+			{
+				int itemId = Convert.ToInt32(Interop.ExecuteJavaScript(@"$0.getSelectedRowsData()[0] ? $0.getSelectedRowsData()[0][$1] : -1", UnderlyingJSInstance, ITEMS_ID_NAME_IN_JSON));
+				if (itemId >= 0)
+					return _idsToItemsDictionary[itemId];
+				return null;
+			}
+		}
+		public List<object> SelectedItems
+		{
+			get
+			{
+				List<object> selectedItems = new List<object>();
+				var itemsList = Interop.ExecuteJavaScript(@"$0.getSelectedRowsData()", UnderlyingJSInstance);
+				int itemListLength = Convert.ToInt32(Interop.ExecuteJavaScript(@"$0.length", itemsList));
+				for (int i = 0; i < itemListLength; i++)
+				{
+					int itemId = Convert.ToInt32(Interop.ExecuteJavaScript(@"$0[$1][$2]", itemsList, i, ITEMS_ID_NAME_IN_JSON));
+					selectedItems.Add(_idsToItemsDictionary[itemId]);
+				}
+				return selectedItems;
+			}
+		}
 
 
 		public static Configuration Configuration = new Configuration();
@@ -190,9 +192,9 @@ gridContainer.id = 'gridContainer';
 			Interop.ExecuteJavaScript(@"jQuery('#gridContainer').dxDataGrid({});");
 
 			UnderlyingJSInstance = Interop.ExecuteJavaScript(@"jQuery('#gridContainer').dxDataGrid('instance')");
-			ValueModifiedCallback();
-			RowRemovedCallback();
-			RowAddedCallback();
+			SetOnEditorPreparedOption();
+			SetOnRowRemovedOption();
+			SetOnRowInsertedOption();
 
 			InitialiseDataGridEditing();
 			InitialiseDataGridSelection();
@@ -262,7 +264,7 @@ To do so, please follow the tutorial at: http://www.cshtml5.com"); //todo: put t
 				{
 					foreach (INotifyPropertyChanged data in _dataSource)
 					{
-						data.PropertyChanged += UpdateJSData;
+						data.PropertyChanged += UpdateJSDataSource;
 					}
 				}
 
@@ -283,7 +285,7 @@ To do so, please follow the tutorial at: http://www.cshtml5.com"); //todo: put t
 				{
 					foreach (INotifyPropertyChanged data in _dataSource)
 					{
-						data.PropertyChanged -= UpdateJSData;
+						data.PropertyChanged -= UpdateJSDataSource;
 					}
 				}
 
@@ -353,32 +355,32 @@ To do so, please follow the tutorial at: http://www.cshtml5.com"); //todo: put t
 			}
 		}
 
-		public void SetSearchPanelData(SearchPanelData searchPanelData)
+		public void SetSearchPanelDataOption(SearchPanelData searchPanelData)
 		{
 			option("searchPanel", Utils.ToJSObject(searchPanelData));
 		}
 
-		public void SetGroupPanelData(GroupPanelData groupPanelData)
+		public void SetGroupPanelDataOption(GroupPanelData groupPanelData)
 		{
 			option("groupPanel", Utils.ToJSObject(groupPanelData));
 		}
 
-		public void SetDataGridSelectionData(dxDataGridSelection dataGridSelection)
+		public void SetDataGridSelectionDataOption(dxDataGridSelection dataGridSelection)
 		{
 			option("selection", Utils.ToJSObject(dataGridSelection));
 		}
 
-		public void SetDataGridEditing(dxDataGridEditing gridBaseEditing)
+		public void SetDataGridEditingOption(dxDataGridEditing gridBaseEditing)
 		{
 			option("editing", Utils.ToJSObject(gridBaseEditing));
 		}
 
-		private void ValueModifiedCallback()
+		private void SetOnEditorPreparedOption()
 		{
 			Action<int, string, object> updateSource = (Action<int, string, object>)this.UpdateSource;
 
 			Interop.ExecuteJavaScript(@"$0.option('onEditorPrepared', function (options) {
-                if (options.parentType == 'dataRow')
+                if (options.parentType == 'dataRow' && options.type != 'selection')
                 {
                     var selectedCell = options.editorElement[options.editorName]('instance');
 
@@ -399,7 +401,7 @@ To do so, please follow the tutorial at: http://www.cshtml5.com"); //todo: put t
 			UpdateProperty(_idsToItemsDictionary[objectId], property, newValue);
 		}
 
-		private void UpdateJSData(object sender, PropertyChangedEventArgs e)
+		private void UpdateJSDataSource(object sender, PropertyChangedEventArgs e)
 		{
 			int objectID = _itemsToIdsDictionary[sender];
 
@@ -415,7 +417,7 @@ To do so, please follow the tutorial at: http://www.cshtml5.com"); //todo: put t
 			option("dataSource", dataSource);
 		}
 
-		private void RowRemovedCallback()
+		private void SetOnRowRemovedOption()
 		{
 			Action<int> rowRemoved = (Action<int>)this.OnRowRemoved;
 			Interop.ExecuteJavaScript(@"$0.option('onRowRemoved', function (options) {
@@ -430,7 +432,7 @@ To do so, please follow the tutorial at: http://www.cshtml5.com"); //todo: put t
 			if (typeof(INotifyPropertyChanged).IsAssignableFrom(objectToRemove.GetType()))
 			{
 				INotifyPropertyChanged objectToRemoveAsINotifyPropertyChanged = (INotifyPropertyChanged)objectToRemove;
-				objectToRemoveAsINotifyPropertyChanged.PropertyChanged -= UpdateJSData;
+				objectToRemoveAsINotifyPropertyChanged.PropertyChanged -= UpdateJSDataSource;
 			}
 
 
@@ -459,7 +461,7 @@ To do so, please follow the tutorial at: http://www.cshtml5.com"); //todo: put t
 			columnOption(ITEMS_ID_NAME_IN_JSON, "visible", Utils.ToJSObject(false));
 		}
 
-		private void RowAddedCallback()
+		private void SetOnRowInsertedOption()
 		{
 			Action<object> rowAdded = (Action<object>)this.OnRowAdded;
 			Interop.ExecuteJavaScript(@"$0.option('onRowInserted', function (options) {
@@ -491,7 +493,7 @@ To do so, please follow the tutorial at: http://www.cshtml5.com"); //todo: put t
 				if (typeof(INotifyPropertyChanged).IsAssignableFrom(newObject.GetType()))
 				{
 					INotifyPropertyChanged newObjectAsINotifyPropertyChanged = (INotifyPropertyChanged)newObject;
-					newObjectAsINotifyPropertyChanged.PropertyChanged += UpdateJSData;
+					newObjectAsINotifyPropertyChanged.PropertyChanged += UpdateJSDataSource;
 				}
 			}
 		}

@@ -9,8 +9,36 @@
 
 				
 	<StackPanel xmlns:DataGrid="clr-namespace:DevExtreme_DataGrid.DevExpress.ui;assembly=CSHTML5.Wrappers.DevExtreme.DataGrid">
-		<DataGrid:dxDataGrid x:Name="DataGrid" Height="300"/>
-		<DataGrid x:Name="DataGrid2"/>
+		<StackPanel Orientation="Vertical">
+			<TextBlock x:Name="LoadingPleaseWaitMessage" Text="Loading DevExtreme DataGrid library, please wait..." Foreground="#FF37B24F" FontSize="18" TextWrapping="Wrap" Margin="16,20,0,10" Visibility="Collapsed"/>
+
+			<DataGrid:dxDataGrid x:Name="DataGrid" Visibility="Collapsed" />
+
+			<StackPanel>
+				<Label FontWeight="Bold" FontSize="14" Content="Selection mode:" />
+				<RadioButton x:Name="SelectionModeSingle" FontSize="14" IsChecked="True" Checked="SelectionModeSingle_Checked"/>
+				<RadioButton x:Name="SelectionModeMultiple" FontSize="14" Checked="SelectionModeMultiple_Checked"/>
+				<Button x:Name="GetSelectedItemButton" Content="Get Selected Item" FontSize="14" Click="GetSelectedItem_Click" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+				<Button x:Name="GetSelectedItemsButton" Content="Get Selected Items" FontSize="14" Click="GetSelectedItems_Click" HorizontalAlignment="Left" VerticalAlignment="Center" Visibility="Collapsed"/>
+			</StackPanel>
+			
+			<StackPanel>
+				<Label FontWeight="Bold" FontSize="14" Content="options:" />
+				<CheckBox Content="Show search panel" FontSize="14" IsChecked="True" Checked="SearchPanel_Show" Unchecked="SearchPanel_Hide" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+				<CheckBox Content="Allow grouping" FontSize="14" IsChecked="True" Checked="Grouping_Enable" Unchecked="Grouping_Disable" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+				<CheckBox Content="Allow adding" FontSize="14" IsChecked="True" Checked="Adding_Enable" Unchecked="Adding_Disable" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+				<CheckBox Content="Allow updating" FontSize="14" IsChecked="True" Checked="Updating_Enable" Unchecked="Updating_Disable" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+				<CheckBox Content="Allow deleting" FontSize="14" IsChecked="True" Checked="Deleting_Enable" Unchecked="Deleting_Disable" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+				<CheckBox Content="Allow columns reordering" FontSize="14" IsChecked="True" Checked="ColumnsReordering_Enable" Unchecked="ColumnsReordering_Disable" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+				<CheckBox Content="Allow row color alternation" FontSize="14" IsChecked="True" Checked="ColorAlternation_Enable" Unchecked="ColorAlternation_Disable" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+				<CheckBox Content="Show border" FontSize="14" IsChecked="True" Checked="ShowBorder_Enable" Unchecked="ShowBorder_Disable" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+				<Button Content="Programatically add item" FontSize="14" Click="AddItem_Click" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+				<Button Content="Test two-way Binding" FontSize="14" Click="EnableTwoWayBinding_Click" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+			</StackPanel>
+
+			<DataGrid x:Name="DataGrid2" Visibility="Collapsed"/>
+
+		</StackPanel>
 	</StackPanel>
 			
 </Page>
