@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>DevExtreme.OpenSilver</id>
+    <version>1.0.0-alpha-001</version>
+    <title>OpenSilver DevExtreme v1.0 Alpha 1</title>
+    <authors>Userware</authors>
+    <owners />
+    <projectUrl>http://www.cshtml5.com</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Classes for the wrappers for the DevExtreme Datagrid for OpenSilver. Powered by Bridge.NET</description>
+    <copyright>Copyright (c) 2020, Userware. All rights reserved.</copyright>
+    <tags>csharp C# xaml javascript OpenSilver compiler DevExtreme bridge bridge.net</tags>
+    <!--<licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>-->
+    <!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
+    <!--<releaseNotes>Summary of changes made in this release of the package.</releaseNotes>-->
+    <dependencies>
+      <dependency id="OpenSilver" version="1.0.0-alpha-002" />
+    </dependencies>
+    
+  </metadata>
+  <files>
+    <!-- DevExtreme Common runtime -->
+    <file src="../CSHTML5.Wrappers.DevExtreme.Common/bin/Debug/netstandard2.0/DevExtreme.OpenSilver.Common.dll" target="lib/netstandard2.0/DevExtreme.OpenSilver.Common.dll" />
+    <file src="../CSHTML5.Wrappers.DevExtreme.Common/bin/Debug/netstandard2.0/DevExtreme.OpenSilver.Common.pdb" target="lib/netstandard2.0/DevExtreme.OpenSilver.Common.pdb" />
+    <file src="../CSHTML5.Wrappers.DevExtreme.Datagrid/bin/Debug/netstandard2.0/DevExtreme.OpenSilver.DataGrid.dll" target="lib/netstandard2.0/DevExtreme.OpenSilver.DataGrid.dll" />
+    <file src="../CSHTML5.Wrappers.DevExtreme.Datagrid/bin/Debug/netstandard2.0/DevExtreme.OpenSilver.DataGrid.pdb" target="lib/netstandard2.0/DevExtreme.OpenSilver.DataGrid.pdb" />
+  </files>
+</package>

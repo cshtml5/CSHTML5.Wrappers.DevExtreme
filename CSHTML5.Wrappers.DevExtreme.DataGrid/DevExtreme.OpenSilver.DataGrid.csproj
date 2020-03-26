@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;SLMIGRATION</DefineConstants>
+    <WarningLevel>1</WarningLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="DevExtreme-DataGrid.d.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="DevExtreme-DataGrid.d.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OpenSilver" Version="1.0.0-alpha-002" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CSHTML5.Wrappers.DevExtreme.Common\DevExtreme.OpenSilver.Common.csproj" />
+  </ItemGroup>
+
+</Project>

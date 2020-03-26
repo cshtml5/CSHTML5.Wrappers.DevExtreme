@@ -13,7 +13,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 
+#if SLMIGRATION
+using System.Windows;
+#else
 using Windows.UI.Xaml;
+#endif
 using ToJavaScriptObjectExtender;
 
 namespace DevExtreme_DataGrid.DevExpress.ui

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevExtreme.OpenSilver.Common", "CSHTML5.Wrappers.DevExtreme.Common\DevExtreme.OpenSilver.Common.csproj", "{757BBA72-5092-48D1-AEDB-37846D7D1D57}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevExtreme.OpenSilver.DataGrid", "CSHTML5.Wrappers.DevExtreme.DataGrid\DevExtreme.OpenSilver.DataGrid.csproj", "{C784E10B-026F-4255-919E-4AB2482B5A3F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{757BBA72-5092-48D1-AEDB-37846D7D1D57} = {757BBA72-5092-48D1-AEDB-37846D7D1D57}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{757BBA72-5092-48D1-AEDB-37846D7D1D57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{757BBA72-5092-48D1-AEDB-37846D7D1D57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{757BBA72-5092-48D1-AEDB-37846D7D1D57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{757BBA72-5092-48D1-AEDB-37846D7D1D57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C784E10B-026F-4255-919E-4AB2482B5A3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C784E10B-026F-4255-919E-4AB2482B5A3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C784E10B-026F-4255-919E-4AB2482B5A3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C784E10B-026F-4255-919E-4AB2482B5A3F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6C1565C8-8A4B-44A6-B045-8639A7A4394D}
+	EndGlobalSection
+EndGlobal
