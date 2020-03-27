@@ -10,6 +10,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevExtreme.OpenSilver.DataG
 		{757BBA72-5092-48D1-AEDB-37846D7D1D57} = {757BBA72-5092-48D1-AEDB-37846D7D1D57}
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NUGET_PACKAGES", "NUGET_PACKAGES", "{1E3EC00F-C9F5-4695-AE00-47320A743845}"
+	ProjectSection(SolutionItems) = preProject
+		NUGET_PACKAGES\Build NuGet packages for CSHTML5.bat = NUGET_PACKAGES\Build NuGet packages for CSHTML5.bat
+		NUGET_PACKAGES\Build NuGet packages for OpenSilver.bat = NUGET_PACKAGES\Build NuGet packages for OpenSilver.bat
+		NUGET_PACKAGES\DevExtreme.CSHTML5.nuspec = NUGET_PACKAGES\DevExtreme.CSHTML5.nuspec
+		NUGET_PACKAGES\DevExtreme.OpenSilver.nuspec = NUGET_PACKAGES\DevExtreme.OpenSilver.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExtLibs", "ExtLibs", "{D3E794A3-CC52-43A7-B9FC-A84B3682B973}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{07A56F06-B144-42D2-97A4-A5E759F1F27C}"
+	ProjectSection(SolutionItems) = preProject
+		ExtLibs\NuGet\nuget.exe = ExtLibs\NuGet\nuget.exe
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +42,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{07A56F06-B144-42D2-97A4-A5E759F1F27C} = {D3E794A3-CC52-43A7-B9FC-A84B3682B973}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6C1565C8-8A4B-44A6-B045-8639A7A4394D}
