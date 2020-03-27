@@ -15,7 +15,7 @@
     <!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
     <!--<releaseNotes>Summary of changes made in this release of the package.</releaseNotes>-->
     <dependencies>
-      <dependency id="OpenSilver" version="1.0.0-alpha-002" />
+      <dependency id="OpenSilver" version="1.0.0-alpha-003" />
     </dependencies>
     
   </metadata>
