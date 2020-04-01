@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="OpenSilver" Version="1.0.0-alpha-002" />
+    <PackageReference Include="OpenSilver" Version="1.0.0-alpha-003" />
   </ItemGroup>
 
 </Project>
