@@ -91,6 +91,10 @@ namespace CSHTML5.Wrappers.DevExtreme.Common
                 {
                     returnValue = cSharpObject;
                 }
+                else if (cSharpObject is double && double.IsNaN((double)cSharpObject))
+                {
+                    returnValue = null;
+                }
 #if BRIDGE
                 else if (cSharpObject != null && cSharpObject.GetType().IsValueType)
                 {

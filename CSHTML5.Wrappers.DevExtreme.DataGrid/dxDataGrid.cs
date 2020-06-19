@@ -12,6 +12,7 @@ using System.Reflection;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Windows.UI.Xaml.Controls;
 
 #if SLMIGRATION
 using System.Windows;
@@ -176,6 +177,60 @@ namespace DevExtreme_DataGrid.DevExpress.ui
 			}
 		}
 
+		#region selection changed event
+		//note about this event: we need to register to this event, pre-handle it and only then change the value in c# since the user will probably want the old value if he registers to it.
+
+		/// <summary>
+		/// Occurs when the selection is changed.
+		/// </summary>
+		public event SelectionChangedEventHandler SelectionChanged;
+
+		/// <summary>
+		/// Raises the TextChanged event
+		/// </summary>
+		/// <param name="eventArgs">The arguments for the event.</param>
+		protected virtual void OnSelectionChanged(SelectionChangedEventArgs eventArgs)
+		{
+			if (SelectionChanged != null)
+			{
+				SelectionChanged(this, eventArgs);
+			}
+		}
+
+		private void RegisterToSelectionChanged()
+		{
+			Interop.ExecuteJavaScript("$0.option($1, $2)", this.UnderlyingJSInstance, "onSelectionChanged", (Action<object>)HandleSelectionChanged);
+		}
+
+		//private void UnregisterFromSelectionChanged()
+		//{
+		//	Interop.ExecuteJavaScript("$0.option($1, undefined)", this.UnderlyingJSInstance, "onSelectionChanged");
+		//}
+
+		private void HandleSelectionChanged(object selectionChangedJSArgs)
+		{
+			if (SelectionChanged != null)
+			{
+				//Note: below, Key means the value of the key property of the data item (the key property is defined through keyExpr I think).
+				//		(From the Doc: If a field providing key values is not specified in the data source, the whole data object is considered the key. In this case, all arrays passed to the function contain data objects instead of keys.)
+				//		see: https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxDataGrid/Configuration/#onSelectionChanged
+
+				//An array of the selected keys that was defined I don't know how (probs a property in the DataGrid that says "this property is the key in the data items")
+				////create the eventArgs from the JSArgs
+				//SelectedItemsAsJSObject = Interop.ExecuteJavaScript("$0.selectedRowsData", selectionChangedJSArgs);
+				////currentDeselectedRowKeys --> contains the keys of the newly unselected items
+				////currentSelectedRowKeys --> contains the keys of the newly selected items
+				////selectedRowKeys --> contains the keys of all the currently selected items
+				////selectedRowsData --> An array of all the currently selected items
+
+
+				//todo: FIX: Use currentDeselectedRowKeys for the removedItems and currentSelectedRowKeys for the addedItems. See the SelectedItems property implementation to change them into C# objects
+				OnSelectionChanged(new SelectionChangedEventArgs(null, SelectedItems));
+			}
+		}
+
+		#endregion
+
 
 		public static Configuration Configuration = new Configuration();
 
@@ -213,6 +268,8 @@ gridContainer.id = 'gridContainer';
 			InitialiseDataGridSelection();
 			InitialiseGroupPanel();
 			InitialiseSearchPanel();
+
+			RegisterToSelectionChanged(); //todo-perf: only register when the developper registers to the SelectionChanged event.
 
 			RowAlternationEnabled = true;
 			ShowBorders = true;

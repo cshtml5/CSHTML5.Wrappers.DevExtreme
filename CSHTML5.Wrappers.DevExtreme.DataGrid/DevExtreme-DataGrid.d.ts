@@ -369,10 +369,10 @@ declare module DevExpress.ui
         //allowExporting?: boolean;
         /** Specifies whether the user can group data by values of this column. Applies only when grouping is enabled. */
         allowGrouping?: boolean;
-        ///** Specifies whether groups appear expanded or not when records are grouped by a specific column. Setting this option makes sense only when grouping is allowed for this column. */
-        //autoExpandGroup?: boolean;
-        ///** Allows you to customize buttons in the editing column or create a custom command column. Applies only if the column's type is "buttons". */
-        //buttons?: object;
+        /** Specifies whether groups appear expanded or not when records are grouped by a specific column. Setting this option makes sense only when grouping is allowed for this column. */
+        autoExpandGroup?: boolean;
+        /** Allows you to customize buttons in the editing column or create a custom command column. Applies only if the column's type is "buttons". */
+        buttons?: object;
         ///** Specifies a field name or a function that returns a field name or a value to be used for grouping column cells. */
         ////calculateGroupValue?: string | ((rowData: any) => any);
         ///** Specifies a custom template for data cells. */
@@ -383,8 +383,8 @@ declare module DevExpress.ui
         ////editCellTemplate?: DevExpress.core.template | ((cellElement: DevExpress.core.dxElement, cellInfo: { setValue?: any, data?: any, component?: dxDataGrid, value?: any, displayValue?: any, text?: string, columnIndex?: number, rowIndex?: number, column?: dxDataGridColumn, row?: dxDataGridRowObject, rowType?: string, watch?: Function }) => any);
         ///** Specifies a custom template for group cells (group rows). */
         ////groupCellTemplate?: DevExpress.core.template | ((cellElement: DevExpress.core.dxElement, cellInfo: { data?: any, component?: dxDataGrid, value?: any, text?: string, displayValue?: any, columnIndex?: number, rowIndex?: number, column?: dxDataGridColumn, row?: dxDataGridRowObject, summaryItems?: Array<any>, groupContinuesMessage?: string, groupContinuedMessage?: string }) => any);
-        ///** Specifies the index of a column when grid records are grouped by the values of this column. */
-        //groupIndex?: number;
+        /** Specifies the index of a column when grid records are grouped by the values of this column. */
+        groupIndex?: number;
         ///** Specifies a custom template for column headers. */
         ////headerCellTemplate?: DevExpress.core.template | ((columnHeader: DevExpress.core.dxElement, headerInfo: { component?: dxDataGrid, columnIndex?: number, column?: dxDataGridColumn }) => any);
         ///** Specifies whether or not to display the column when grid records are grouped by it. */
