@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7294DC40-B04C-400D-BBC2-7683A2855A99}</ProjectGuid>
+    <ProjectGuid>{1CA18FA8-823D-420E-B57A-EF1AD634AAFA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CSHTML5.Wrappers.DevExtreme.DataGrid.Examples</RootNamespace>
-    <AssemblyName>CSHTML5.Wrappers.DevExtreme.DataGrid.Examples</AssemblyName>
+    <RootNamespace>CSHTML5.Wrappers.DevExtreme.Switch.Examples</RootNamespace>
+    <AssemblyName>CSHTML5.Wrappers.DevExtreme.Switch.Examples</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsCSharpXamlForHtml5>true</IsCSharpXamlForHtml5>
@@ -18,7 +18,7 @@
     <StartAction>Program</StartAction>
     <StartProgram>
     </StartProgram>
-    <StartArguments>"CSHTML5.Wrappers.DevExtreme.DataGrid.Examples.dll"</StartArguments>
+    <StartArguments>"CSHTML5.Wrappers.DevExtreme.Switch.Examples.dll"</StartArguments>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -45,7 +45,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Employee.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -69,26 +68,16 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CSHTML5.Wrappers.DevExtreme.common\CSHTML5.Wrappers.DevExtreme.Common.csproj">
-      <Project>{6b18fbdb-8a8f-4b63-8ea2-b30d24695e03}</Project>
-      <Name>CSHTML5.Wrappers.DevExtreme.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CSHTML5.Wrappers.DevExtreme.DataGrid\CSHTML5.Wrappers.DevExtreme.DataGrid.csproj">
-      <Project>{a37e8fe6-7a6e-4b25-a8c9-b73a87f9bbee}</Project>
-      <Name>CSHTML5.Wrappers.DevExtreme.DataGrid</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="Bridge, Version=17.9.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CSHTML5.2.0.0-alpha69-089\lib\net40\Bridge.dll</HintPath>
+      <HintPath>..\packages\CSHTML5.2.0.0-alpha49-068\lib\net40\Bridge.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CSHTML5, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CSHTML5.2.0.0-alpha69-089\lib\net40\CSHTML5.dll</HintPath>
+      <HintPath>..\packages\CSHTML5.2.0.0-alpha49-068\lib\net40\CSHTML5.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CSHTML5.Stubs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CSHTML5.2.0.0-alpha69-089\lib\net40\CSHTML5.Stubs.dll</HintPath>
+      <HintPath>..\packages\CSHTML5.2.0.0-alpha49-068\lib\net40\CSHTML5.Stubs.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -117,12 +106,22 @@
     <Content Include="styles\icons\dxiconsmaterial.woff" />
     <Content Include="styles\icons\dxiconsmaterial.woff2" />
   </ItemGroup>
-  <Import Project="..\packages\CSHTML5.2.0.0-alpha69-089\build\CSHTML5.targets" Condition="Exists('..\packages\CSHTML5.2.0.0-alpha69-089\build\CSHTML5.targets')" />
+  <ItemGroup>
+    <ProjectReference Include="..\CSHTML5.Wrappers.DevExtreme.Common\CSHTML5.Wrappers.DevExtreme.Common.csproj">
+      <Project>{6b18fbdb-8a8f-4b63-8ea2-b30d24695e03}</Project>
+      <Name>CSHTML5.Wrappers.DevExtreme.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CSHTML5.Wrappers.DevExtreme.Switch\CSHTML5.Wrappers.DevExtreme.Switch.csproj">
+      <Project>{70d19ccf-dd1f-411b-b0ef-b1d2a4c5ae13}</Project>
+      <Name>CSHTML5.Wrappers.DevExtreme.Switch</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="..\packages\CSHTML5.2.0.0-alpha49-068\build\CSHTML5.targets" Condition="Exists('..\packages\CSHTML5.2.0.0-alpha49-068\build\CSHTML5.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\CSHTML5.2.0.0-alpha69-089\build\CSHTML5.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CSHTML5.2.0.0-alpha69-089\build\CSHTML5.targets'))" />
+    <Error Condition="!Exists('..\packages\CSHTML5.2.0.0-alpha49-068\build\CSHTML5.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CSHTML5.2.0.0-alpha49-068\build\CSHTML5.targets'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

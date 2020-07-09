@@ -1,0 +1,15 @@
+﻿<Page
+    x:Class="CSHTML5.Wrappers.DevExtreme.Switch.Examples.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CSHTML5.Wrappers.DevExtreme.Switch.Examples"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Switch="clr-namespace:DevExtreme_Switch.DevExpress.ui;assembly=CSHTML5.Wrappers.DevExtreme.Switch"
+    mc:Ignorable="d">
+    <StackPanel HorizontalAlignment="Left">
+      <Button Content="Programatically change switch value" Click="Button1_Click"/>
+      <Button Content="Set text and register onValueChanged" Click="Button2_Click" />
+      <Switch:dxSwitch x:Name="Switch1"/>
+    </StackPanel>
+</Page>

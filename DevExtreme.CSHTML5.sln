@@ -22,6 +22,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{D76D98D0
 		ExtLibs\NuGet\nuget.exe = ExtLibs\NuGet\nuget.exe
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Wrappers.DevExtreme.Switch", "CSHTML5.Wrappers.DevExtreme.Switch\CSHTML5.Wrappers.DevExtreme.Switch.csproj", "{70D19CCF-DD1F-411B-B0EF-B1D2A4C5AE13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Wrappers.DevExtreme.Switch.Examples", "CSHTML5.Wrappers.DevExtreme.Switch.Examples\CSHTML5.Wrappers.DevExtreme.Switch.Examples.csproj", "{1CA18FA8-823D-420E-B57A-EF1AD634AAFA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +44,14 @@ Global
 		{6B18FBDB-8A8F-4B63-8EA2-B30D24695E03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B18FBDB-8A8F-4B63-8EA2-B30D24695E03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B18FBDB-8A8F-4B63-8EA2-B30D24695E03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70D19CCF-DD1F-411B-B0EF-B1D2A4C5AE13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70D19CCF-DD1F-411B-B0EF-B1D2A4C5AE13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70D19CCF-DD1F-411B-B0EF-B1D2A4C5AE13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70D19CCF-DD1F-411B-B0EF-B1D2A4C5AE13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CA18FA8-823D-420E-B57A-EF1AD634AAFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CA18FA8-823D-420E-B57A-EF1AD634AAFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CA18FA8-823D-420E-B57A-EF1AD634AAFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CA18FA8-823D-420E-B57A-EF1AD634AAFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,6 +6,8 @@
 # Third-party libraries
 CSHTML5.Wrappers.DevExtreme.DataGrid.Examples/scripts
 CSHTML5.Wrappers.DevExtreme.DataGrid.Examples/styles
+CSHTML5.Wrappers.DevExtreme.Switch.Examples/scripts
+CSHTML5.Wrappers.DevExtreme.Switch.Examples/styles
 
 # User-specific files
 *.rsuser
