@@ -14,6 +14,7 @@ namespace CSHTML5.Wrappers.DevExtreme.Common
         public static JSObject ToJSObject(object o)
         {
             string serialized = JsonConvert.SerializeObject(o);
+            //Windows.UI.Xaml.MessageBox.Show(serialized);
             object json = Interop.ExecuteJavaScript("JSON.parse($0)", serialized);
             return new JSObject(json);
         }
@@ -107,7 +108,10 @@ namespace CSHTML5.Wrappers.DevExtreme.Common
                         propertyName = columnPropertyPath;
 
                     // Add the property name and value:
-                    dictionary.Add(propertyName, propertyValue);
+                    if(!dictionary.ContainsKey(propertyName))
+                    {
+                        dictionary.Add(propertyName, propertyValue);
+                    }
                 }
 
                 //add and remember the id associated to the item:

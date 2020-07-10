@@ -40,6 +40,7 @@
   <ItemGroup>
     <Compile Include="Configuration.cs" />
     <Compile Include="dxDataGrid.cs" />
+    <Compile Include="dxDataGridColumnButton.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

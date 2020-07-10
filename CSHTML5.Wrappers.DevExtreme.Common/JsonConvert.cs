@@ -66,7 +66,12 @@ namespace CSHTML5.Wrappers.DevExtreme.Common
             {
                 listOfParentsToAvoidCyclicReferences.Add(cSharpObject);
                 object returnValue;
-
+                //todo: see if the following is needed.
+                //if(cSharpObject != null && cSharpObject.GetType().Name == "INTERNAL_JSObjectReference")
+                //{
+                //    returnValue = cSharpObject;
+                //}
+                //else 
                 if (cSharpObject is Enum || cSharpObject is Guid || cSharpObject is long)
                 {
                     returnValue = cSharpObject.ToString();
@@ -98,10 +103,7 @@ namespace CSHTML5.Wrappers.DevExtreme.Common
 #if BRIDGE
                 else if (cSharpObject != null && cSharpObject.GetType().IsValueType)
                 {
-                    if (Interop.IsRunningInTheSimulator)
-                        returnValue = Interop.ExecuteJavaScript("$0", cSharpObject);
-                    else
-                        returnValue = Interop.ExecuteJavaScript("$0.v", cSharpObject);
+                    return Interop.Unbox(cSharpObject);
                 }
 #endif
                 else if (cSharpObject is IEnumerable && !(cSharpObject is string))

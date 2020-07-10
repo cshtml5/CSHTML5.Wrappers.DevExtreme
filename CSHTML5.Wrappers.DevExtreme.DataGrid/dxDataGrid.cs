@@ -177,6 +177,15 @@ namespace DevExtreme_DataGrid.DevExpress.ui
 			}
 		}
 
+		internal object GetItemFromId(int id)
+		{
+			if(_idsToItemsDictionary.ContainsKey(id))
+			{
+				return _idsToItemsDictionary[id];
+			}
+			return null;
+		}
+
 		#region selection changed event
 		//note about this event: we need to register to this event, pre-handle it and only then change the value in c# since the user will probably want the old value if he registers to it.
 
@@ -330,7 +339,36 @@ To do so, please follow the tutorial at: http://www.cshtml5.com"); //todo: put t
 			{
 				_columns = value;
 				UpdatePropertyNamesOnColumnsChange(value);
-				option("columns", Utils.ToJSObject(_columns));
+				var cols = Utils.ToJSObject(_columns);
+				//todo: find a way to set the event method naturally because I really don't like setting stuff based on indexes in collections.
+				if (!Interop.IsRunningInTheSimulator)
+				{
+					int columnIndex = 0;
+					foreach (var col in _columns)
+					{
+						if (col.type == "buttons")
+						{
+							if (col.buttons is IEnumerable)
+							{
+								int buttonIndex = 0;
+								var buttonsAsIEnumerable = (IEnumerable)col.buttons;
+								foreach (object button in buttonsAsIEnumerable)
+								{
+									if (button is dxDataGridColumnButton)
+									{
+										dxDataGridColumnButton buttonAsdxDataGridColumnButton = button as dxDataGridColumnButton;
+										buttonAsdxDataGridColumnButton._parentDataGrid = this;
+										Interop.ExecuteJavaScript("$0.UnderlyingJSInstance[$1].buttons[$2].onClick = $3", cols, Interop.Unbox(columnIndex), Interop.Unbox(buttonIndex), (Action<object>)buttonAsdxDataGridColumnButton.HandleClick);
+										//((dxDataGridColumnButton)button).RegisterToClick();
+									}
+									++buttonIndex;
+								}
+							}
+						}
+						++columnIndex;
+					}
+				}
+				option("columns", cols);
 			}
 		}
 

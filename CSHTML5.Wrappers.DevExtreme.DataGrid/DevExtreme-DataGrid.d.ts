@@ -352,6 +352,20 @@ declare module DevExpress.ui
         width?: number | string;
     }
 
+    /** Allows you to customize buttons in the editing column or create a custom command column. Applies only if the column's type is "buttons". */
+    export interface GridBaseColumnButton {
+        /** Specifies a CSS class to be applied to the button. */
+        cssClass?: string;
+        /** Specifies the text for the hint that appears when the button is hovered over or long-pressed. */
+        hint?: string;
+        /** Specifies the button's icon. */
+        icon?: string;
+        /** Specifies the button's text. Applies only if the button's icon is not specified. */
+        text?: string;
+    }
+
+    export interface dxDataGridColumnButton { }
+
     export interface dxDataGridColumn extends GridBaseColumn {
         /*inherited from GridBaseColumn*/
         /** Aligns the content of the column. */
@@ -372,7 +386,7 @@ declare module DevExpress.ui
         /** Specifies whether groups appear expanded or not when records are grouped by a specific column. Setting this option makes sense only when grouping is allowed for this column. */
         autoExpandGroup?: boolean;
         /** Allows you to customize buttons in the editing column or create a custom command column. Applies only if the column's type is "buttons". */
-        buttons?: object;
+        buttons?: object; //dxDataGridColumnButton[];
         ///** Specifies a field name or a function that returns a field name or a value to be used for grouping column cells. */
         ////calculateGroupValue?: string | ((rowData: any) => any);
         ///** Specifies a custom template for data cells. */
@@ -389,8 +403,8 @@ declare module DevExpress.ui
         ////headerCellTemplate?: DevExpress.core.template | ((columnHeader: DevExpress.core.dxElement, headerInfo: { component?: dxDataGrid, columnIndex?: number, column?: dxDataGridColumn }) => any);
         ///** Specifies whether or not to display the column when grid records are grouped by it. */
         //showWhenGrouped?: boolean;
-        ///** Specifies the command column that this object customizes. */
-        //type?: string;
+        /** Specifies the command column that this object customizes. */
+        type?: string;
     }
 
     export interface dxDataGridSelection extends GridBaseSelection {
