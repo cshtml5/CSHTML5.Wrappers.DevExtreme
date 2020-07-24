@@ -22,6 +22,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{D76D98D0
 		ExtLibs\NuGet\nuget.exe = ExtLibs\NuGet\nuget.exe
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Wrappers.DevExtreme.SelectBox", "CSHTML5.Wrappers.DevExtreme.SelectBox\CSHTML5.Wrappers.DevExtreme.SelectBox.csproj", "{34AD72E5-1DA4-411B-8D5B-B72DD714E8AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Wrappers.DevExtreme.SelectBox.Examples", "CSHTML5.Wrappers.DevExtreme.SelectBox.Examples\CSHTML5.Wrappers.DevExtreme.SelectBox.Examples.csproj", "{5B82F191-F34A-4B20-AC45-77FA72E2DB81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Wrappers.DevExtreme.TextBox", "CSHTML5.Wrappers.DevExtreme.TextBox\CSHTML5.Wrappers.DevExtreme.TextBox.csproj", "{2F600E13-89E8-4152-BD17-DE009AF324C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Wrappers.DevExtreme.TextBox.Examples", "CSHTML5.Wrappers.DevExtreme.TextBox.Examples\CSHTML5.Wrappers.DevExtreme.TextBox.Examples.csproj", "{0BE5215D-4CD7-47AB-9538-2BF4A7E97762}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +48,22 @@ Global
 		{6B18FBDB-8A8F-4B63-8EA2-B30D24695E03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B18FBDB-8A8F-4B63-8EA2-B30D24695E03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B18FBDB-8A8F-4B63-8EA2-B30D24695E03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34AD72E5-1DA4-411B-8D5B-B72DD714E8AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34AD72E5-1DA4-411B-8D5B-B72DD714E8AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34AD72E5-1DA4-411B-8D5B-B72DD714E8AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34AD72E5-1DA4-411B-8D5B-B72DD714E8AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B82F191-F34A-4B20-AC45-77FA72E2DB81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B82F191-F34A-4B20-AC45-77FA72E2DB81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B82F191-F34A-4B20-AC45-77FA72E2DB81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B82F191-F34A-4B20-AC45-77FA72E2DB81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F600E13-89E8-4152-BD17-DE009AF324C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F600E13-89E8-4152-BD17-DE009AF324C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F600E13-89E8-4152-BD17-DE009AF324C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F600E13-89E8-4152-BD17-DE009AF324C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BE5215D-4CD7-47AB-9538-2BF4A7E97762}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BE5215D-4CD7-47AB-9538-2BF4A7E97762}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BE5215D-4CD7-47AB-9538-2BF4A7E97762}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BE5215D-4CD7-47AB-9538-2BF4A7E97762}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
