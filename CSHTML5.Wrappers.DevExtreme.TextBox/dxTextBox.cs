@@ -51,24 +51,34 @@ namespace DevExtreme_TextBox.DevExpress.ui
 			Interop.ExecuteJavaScript(@"$0('#textBoxContainer').dxTextBox({});", _jQueryVersion);
 
 			UnderlyingJSInstance = Interop.ExecuteJavaScript(@"$0('#textBoxContainer').dxTextBox('instance')", _jQueryVersion);
+
+			//note about the comment below: only one occurence of an id should be found in a html document and if there are multiple occurences, only the first can be accessed through its id so we can't use it. (see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id)
+			//we remove the id since we won't use it anymore and it will let us reuse this id for another dxtextbox:
+			Interop.ExecuteJavaScript(
+				@"var textBoxContainer = $0; textBoxContainer.id = '';",
+				(new JSObject(this.DomElement)).ToJavaScriptObject()
+			);
 		}
 
 		protected override void JSComponent_Loaded(object sender, RoutedEventArgs e)
 		{
 			if (Configuration.AreSourcesSet)
 			{
-				_jsLibrary = new JSLibrary(
-					css: new Interop.ResourceFile[]
-					{
+				if (_jsLibrary == null)
+				{
+					_jsLibrary = new JSLibrary(
+						css: new Interop.ResourceFile[]
+						{
 						new Interop.ResourceFile("dx.common", Configuration.LocationOfDXCommonCSS), // e.g. "ms-appx:///CSHTML5.Wrappers.DevExtreme.TextBox/styles/dx.common.css"
                         new Interop.ResourceFile("dx.theme", Configuration.LocationOfDXThemeCSS), // e.g. "ms-appx:///CSHTML5.Wrappers.DevExtreme.TextBox/styles/dx."theme name".css"
-                    },
-					js: new Interop.ResourceFile[]
-					{
+						},
+						js: new Interop.ResourceFile[]
+						{
 						new Interop.ResourceFile("jQueryDevExtreme", Configuration.LocationOfJquery), // e.g. "ms-appx:///CSHTML5.Wrappers.DevExtreme.TextBox/scripts/jquery.min.js"
                         new Interop.ResourceFile("dx", Configuration.LocationOfDXAllJS) // e.g. "ms-appx:///CSHTML5.Wrappers.DevExtreme.TextBox/scripts/dx.all.js"
-                    }
-				);
+						}
+					);
+				}
 				base.JSComponent_Loaded(sender, e);
                 CheckErrorandDisplayItInsteadOfEditorIfNeeded();
 			}

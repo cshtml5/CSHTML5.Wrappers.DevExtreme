@@ -24,8 +24,8 @@ using ToJavaScriptObjectExtender;
 
 namespace DevExtreme_SelectBox.DevExpress.ui
 {
-	public partial class dxSelectBox : JSComponent
-	{
+    public partial class dxSelectBox : JSComponent
+    {
         //const string ITEMS_ID_NAME_IN_JSON = "DevExtremeId";
 
         //// used when the grid is set through PlainDataSource.
@@ -46,7 +46,7 @@ namespace DevExtreme_SelectBox.DevExpress.ui
                 if (_dataSource != null)
                     //UnsubscribeFromDataSourceEvent();
 
-                _dataSource = value;
+                    _dataSource = value;
 
                 //RefreshGridDataSource();
 
@@ -235,85 +235,95 @@ namespace DevExtreme_SelectBox.DevExpress.ui
 
         public static Configuration Configuration = new Configuration();
 
-		static JSLibrary _jsLibrary;
+        static JSLibrary _jsLibrary;
 
-		public override JSLibrary JSLibrary { get { return _jsLibrary; } }
+        public override JSLibrary JSLibrary { get { return _jsLibrary; } }
 
-		// Used to avoid confilct with other jQueryVersion
-		static object _jQueryVersion;
+        // Used to avoid confilct with other jQueryVersion
+        static object _jQueryVersion;
 
-		partial void Initialize()
-		{
-			base.Initialize(initJSInstance: true);
-		}
-		protected override void InitializeJSInstance()
-		{
-			if(_jQueryVersion == null)
-			{
-				_jQueryVersion = Interop.ExecuteJavaScript(@"$.noConflict()");
-			}
+        partial void Initialize()
+        {
+            base.Initialize(initJSInstance: true);
+        }
+        protected override void InitializeJSInstance()
+        {
+            if (_jQueryVersion == null)
+            {
+                _jQueryVersion = Interop.ExecuteJavaScript(@"$.noConflict()");
+            }
 
-			Interop.ExecuteJavaScript(
-				@"var selectBoxContainer = $0; selectBoxContainer.id = 'selectBoxContainer';",
-				(new JSObject(this.DomElement)).ToJavaScriptObject()
-			);
+            Interop.ExecuteJavaScript(
+                @"var selectBoxContainer = $0; selectBoxContainer.id = 'selectBoxContainer';",
+                (new JSObject(this.DomElement)).ToJavaScriptObject()
+            );
 
-			Interop.ExecuteJavaScript(@"$0('#selectBoxContainer').dxSelectBox({});", _jQueryVersion);
+            Interop.ExecuteJavaScript(@"$0('#selectBoxContainer').dxSelectBox({});", _jQueryVersion);
 
-			UnderlyingJSInstance = Interop.ExecuteJavaScript(@"$0('#selectBoxContainer').dxSelectBox('instance')", _jQueryVersion);
-			//SetOnEditorPreparedOption();
-			//SetOnRowRemovedOption();
-			//SetOnRowInsertedOption();
+            UnderlyingJSInstance = Interop.ExecuteJavaScript(@"$0('#selectBoxContainer').dxSelectBox('instance')", _jQueryVersion);
+            //SetOnEditorPreparedOption();
+            //SetOnRowRemovedOption();
+            //SetOnRowInsertedOption();
 
-			//InitialiseDataGridEditing();
-			//InitialiseDataGridSelection();
-			//InitialiseGroupPanel();
-			//InitialiseSearchPanel();
+            //InitialiseDataGridEditing();
+            //InitialiseDataGridSelection();
+            //InitialiseGroupPanel();
+            //InitialiseSearchPanel();
 
-			//RegisterToSelectionChanged(); //todo-perf: only register when the developper registers to the SelectionChanged event.
+            //RegisterToSelectionChanged(); //todo-perf: only register when the developper registers to the SelectionChanged event.
 
-			//RowAlternationEnabled = true;
-			//ShowBorders = true;
-			//AllowColumnReordering = true;
-		}
+            //RowAlternationEnabled = true;
+            //ShowBorders = true;
+            //AllowColumnReordering = true;
 
-		protected override void JSComponent_Loaded(object sender, RoutedEventArgs e)
-		{
-			if (Configuration.AreSourcesSet)
-			{
-				_jsLibrary = new JSLibrary(
-					css: new Interop.ResourceFile[]
-					{
-						new Interop.ResourceFile("dx.common", Configuration.LocationOfDXCommonCSS), // e.g. "ms-appx:///CSHTML5.Wrappers.DevExtreme.SelectBox/styles/dx.common.css"
-                        new Interop.ResourceFile("dx.theme", Configuration.LocationOfDXThemeCSS), // e.g. "ms-appx:///CSHTML5.Wrappers.DevExtreme.SelectBox/styles/dx."theme name".css"
-                    },
-					js: new Interop.ResourceFile[]
-					{
-						new Interop.ResourceFile("jQueryDevExtreme", Configuration.LocationOfJquery), // e.g. "ms-appx:///CSHTML5.Wrappers.DevExtreme.SelectBox/scripts/jquery.min.js"
-                        new Interop.ResourceFile("dx", Configuration.LocationOfDXAllJS) // e.g. "ms-appx:///CSHTML5.Wrappers.DevExtreme.SelectBox/scripts/dx.all.js"
-                    }
-				);
-				base.JSComponent_Loaded(sender, e);
+            //note about the comment below: only one occurence of an id should be found in a html document and if there are multiple occurences, only the first can be accessed through its id so we can't use it. (see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id)
+            //we remove the id since we won't use it anymore and it will let us reuse this id for another dxSelectBox:
+            Interop.ExecuteJavaScript(
+                @"var selectBoxContainer = $0; selectBoxContainer.id = '';",
+                (new JSObject(this.DomElement)).ToJavaScriptObject()
+            );
+        }
+
+        protected override void JSComponent_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (Configuration.AreSourcesSet)
+            {
+                if (_jsLibrary == null)
+                {
+                    _jsLibrary = new JSLibrary(
+                        css: new Interop.ResourceFile[]
+                        {
+                            new Interop.ResourceFile("dx.common", Configuration.LocationOfDXCommonCSS), // e.g. "ms-appx:///CSHTML5.Wrappers.DevExtreme.SelectBox/styles/dx.common.css"
+                            new Interop.ResourceFile("dx.theme", Configuration.LocationOfDXThemeCSS), // e.g. "ms-appx:///CSHTML5.Wrappers.DevExtreme.SelectBox/styles/dx."theme name".css"
+                        },
+                        js: new Interop.ResourceFile[]
+                        {
+                            new Interop.ResourceFile("jQueryDevExtreme", Configuration.LocationOfJquery), // e.g. "ms-appx:///CSHTML5.Wrappers.DevExtreme.SelectBox/scripts/jquery.min.js"
+                            new Interop.ResourceFile("dx", Configuration.LocationOfDXAllJS) // e.g. "ms-appx:///CSHTML5.Wrappers.DevExtreme.SelectBox/scripts/dx.all.js"
+                        }
+                    );
+                }
+                base.JSComponent_Loaded(sender, e);
                 CheckErrorandDisplayItInsteadOfEditorIfNeeded();
-			}
-			else
-			{
-				this.Html = @"Before you can use the DevExtreme SelectBox, you must add to your project the corresponding libraries.
+            }
+            else
+            {
+                this.Html = @"Before you can use the DevExtreme SelectBox, you must add to your project the corresponding libraries.
 To do so, please follow the tutorial at: http://www.cshtml5.com";
-				MessageBox.Show(@"Before you can use the DevExtreme SelectBox, you must add to your project the corresponding libraries.
+                MessageBox.Show(@"Before you can use the DevExtreme SelectBox, you must add to your project the corresponding libraries.
 To do so, please follow the tutorial at: http://www.cshtml5.com"); //todo: put the address of the tutorial.
-				base.AbortLoading();
-			}
-		}
+                base.AbortLoading();
+            }
+        }
 
-		async void CheckErrorandDisplayItInsteadOfEditorIfNeeded()
-		{
-			if (!await this.JSInstanceLoaded)
-			{
-				this.Html = @"The libraries for the DevExtreme SelectBox could not be found. Make sure you have added them in your project at the location you specified in the Configuration.";
-				MessageBox.Show(@"The libraries for the DevExtreme SelectBox could not be found. Make sure you have added them in your project at the location you specified in the Configuration.");
-			}
-		}
+        async void CheckErrorandDisplayItInsteadOfEditorIfNeeded()
+        {
+            if (!await this.JSInstanceLoaded)
+            {
+                this.Html = @"The libraries for the DevExtreme SelectBox could not be found. Make sure you have added them in your project at the location you specified in the Configuration.";
+                MessageBox.Show(@"The libraries for the DevExtreme SelectBox could not be found. Make sure you have added them in your project at the location you specified in the Configuration.");
+            }
+        }
 
         //private List<string> PropertyNames { get; set; }
 
