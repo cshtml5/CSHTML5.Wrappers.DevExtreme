@@ -2,20 +2,20 @@
 <package >
   <metadata>
     <id>CSHTML5.Wrappers.DevExtreme</id>
-    <version>1.0.0-alpha-003</version>
-    <title>CSHTML5 DevExtreme v1.0 Alpha 3</title>
+    <version>1.0.0-alpha-004</version>
+    <title>CSHTML5 DevExtreme v1.0 Alpha 4</title>
     <authors>Userware</authors>
     <owners />
     <projectUrl>http://www.cshtml5.com</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Classes for the wrappers for the DevExtreme SelectBox and TextBox for CSHTML5. Powered by Bridge.NET</description>
+    <description>Classes for the wrappers for the DevExtreme Switch for CSHTML5. Powered by Bridge.NET</description>
     <copyright>Copyright (c) 2020, Userware. All rights reserved.</copyright>
     <tags>csharp C# xaml javascript html html5 compiler DevExtreme cshtml5 bridge bridge.net</tags>
     <!--<licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>-->
     <!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
     <!--<releaseNotes>Summary of changes made in this release of the package.</releaseNotes>-->
     <dependencies>
-      <dependency id="CSHTML5" version="2.0.0-alpha71-092" />
+      <dependency id="CSHTML5" version="2.0.0-alpha71-093" />
     </dependencies>
     
   </metadata>
@@ -29,5 +29,7 @@
     <file src="../CSHTML5.Wrappers.DevExtreme.SelectBox/bin/Debug/CSHTML5.Wrappers.DevExtreme.SelectBox.pdb" target="lib/net40/CSHTML5.Wrappers.DevExtreme.SelectBox.pdb" />
 	<file src="../CSHTML5.Wrappers.DevExtreme.TextBox/bin/Debug/CSHTML5.Wrappers.DevExtreme.TextBox.dll" target="lib/net40/CSHTML5.Wrappers.DevExtreme.TextBox.dll" />
     <file src="../CSHTML5.Wrappers.DevExtreme.TextBox/bin/Debug/CSHTML5.Wrappers.DevExtreme.TextBox.pdb" target="lib/net40/CSHTML5.Wrappers.DevExtreme.TextBox.pdb" />
+	<file src="../CSHTML5.Wrappers.DevExtreme.Switch/bin/Debug/CSHTML5.Wrappers.DevExtreme.Switch.dll" target="lib/net40/CSHTML5.Wrappers.DevExtreme.Switch.dll" />
+    <file src="../CSHTML5.Wrappers.DevExtreme.Switch/bin/Debug/CSHTML5.Wrappers.DevExtreme.Switch.pdb" target="lib/net40/CSHTML5.Wrappers.DevExtreme.Switch.pdb" />
   </files>
 </package>
