@@ -4,11 +4,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:CSHTML5.Wrappers.DevExtreme.SelectBox.Examples"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:SelectBox="clr-namespace:DevExtreme_SelectBox.DevExpress.ui;assembly=CSHTML5.Wrappers.DevExtreme.SelectBox"
     mc:Ignorable="d">
     <Canvas>
-        <SelectBox:dxSelectBox x:Name="SelectBox" Canvas.Left="20" Canvas.Top="30"/>
-        <TextBlock Text="Hello World!" x:Name="TextBlock1" Canvas.Left="50" Canvas.Top="70"/>
+        <Button x:Name="GetSelectedItemButton" Content="Get Selected Item" FontSize="14" Click="GetSelectedItem_Click" Canvas.Left="20" Canvas.Top="0"></Button>
+        <TextBlock Text="Select Box With Searchable Data" x:Name="TextBlock1" Canvas.Left="20" Canvas.Top="30"/>
+        <SelectBox:dxSelectBox Name="SelectBox1" Canvas.Left="20" Canvas.Top="60"/>           
+        
+        <TextBlock Text="Select Box With Clear Button but Non Searchable and has custom placeholder" x:Name="TextBlock2" Canvas.Left="20" Canvas.Top="130"/>
+        <SelectBox:dxSelectBox x:Name="SelectBox2" Canvas.Left="20" Canvas.Top="160" Width="300"/>
     </Canvas>
 </Page>

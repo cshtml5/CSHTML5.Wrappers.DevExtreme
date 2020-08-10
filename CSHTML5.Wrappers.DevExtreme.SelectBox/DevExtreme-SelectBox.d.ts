@@ -1,6 +1,3 @@
-interface JQueryPromise<T> {
-}
-
 declare module DevExpress {
     export class Component {
         constructor(options?: Object);
@@ -42,7 +39,19 @@ declare module DevExpress {
 }
 
 declare module DevExpress.ui {
-    //1899
+    export interface CollectionWidgetItem {
+        /** Specifies whether a widget item should be disabled. */
+        disabled?: boolean;
+        /** Specifies html code inserted into the widget item element. */
+        html?: string;
+        /** Specifies a template that should be used to render this item only. */
+        //template?: DevExpress.core.template | (() => string | Element | Object);
+        /** Specifies text displayed for the widget item. */
+        text?: string;
+        /** Specifies whether or not a widget item must be displayed. */
+        visible?: boolean;
+    }
+
     /** A base class for editors. */
     export class Editor extends Widget {
         constructor(element: Element, options?: Object);
@@ -51,7 +60,6 @@ declare module DevExpress.ui {
         reset(): void;
     }
 
-    //2508
     /** The base class for widgets. */
     export class Widget extends DOMComponent {
         constructor(element: Element, options?: Object);
@@ -64,38 +72,28 @@ declare module DevExpress.ui {
         repaint(): void;
     }
 
-    //3400
     /** A drop-down editor widget. */
     export class dxDropDownEditor extends dxTextBox {
         constructor(element: Element, options?: Object);
         constructor(element: Object, options?: Object);
         /** Closes the drop-down editor. */
         close(): void;
-        /** Gets the popup window's content. */
-        //content(): DevExpress.core.dxElement;
-        /** Gets the widget's `` element. */
-        //field(): DevExpress.core.dxElement;
         /** Opens the drop-down editor. */
         open(): void;
     }
 
-    //3450
     /** A base class for drop-down list widgets. */
     export class dxDropDownList extends dxDropDownEditor {
         constructor(element: Element, options?: Object);
         constructor(element: Object, options?: Object);
-        /** Gets the DataSource instance. */
-        getDataSource(): DevExpress.data.DataSource;
     }
 
-    //5712
     /** The TextBox is a widget that enables a user to enter and edit a single line of text. */
     export class dxTextBox extends dxTextEditor {
         constructor(element: Element, options?: Object);
         constructor(element: Object, options?: Object);
     }
 
-    //5778
     /** A base class for text editing widgets. */
     export class dxTextEditor extends Editor {
         constructor(element: Element, options?: Object);
@@ -104,45 +102,21 @@ declare module DevExpress.ui {
         blur(): void;
         /** Sets focus to the input element representing the widget. */
         focus(): void;
-        /** Gets an instance of a custom action button. */
-        //getButton(name: string): dxButton | undefined;
     }
 
-    //5355
-    //export interface dxSelectBoxOptions<T = dxSelectBox> extends dxDropDownListOptions<T> {
-    //    /** Specifies whether the widget allows a user to enter a custom value. Requires the onCustomItemCreating handler implementation. */
-    //    acceptCustomValue?: boolean;
-    //    /** Specifies a custom template for the text field. Must contain the TextBox widget. */
-    //    fieldTemplate?: DevExpress.core.template | ((selectedItem: any, fieldElement: DevExpress.core.dxElement) => string | Element | JQuery);
-    //    /** A function that is executed when a user adds a custom item. Requires acceptCustomValue to be set to true. */
-    //    onCustomItemCreating?: ((e: { component?: T, element?: DevExpress.core.dxElement, model?: any, text?: string, customItem?: string | any | Promise<any> | JQueryPromise<any> }) => any);
-    //    /** Specifies whether a user can open the drop-down list by clicking a text field. */
-    //    openOnFieldClick?: boolean;
-    //    /** The text that is provided as a hint in the select box editor. */
-    //    placeholder?: string;
-    //    /** Specifies whether the drop-down button is visible. */
-    //    showDropDownButton?: boolean;
-    //    /** Specifies whether or not to display selection controls. */
-    //    showSelectionControls?: boolean;
-    //    /** Specifies the DOM events after which the widget's value should be updated. Applies only if acceptCustomValue is set to true. */
-    //    valueChangeEvent?: string;
-    //}
-
-    //5373
     /** The SelectBox widget is an editor that allows an end user to select an item from a drop-down list. */
     export class dxSelectBox extends dxDropDownList {
         constructor(element: Element, options?: Object);
         constructor(element: Object, options?: Object);
+        /** Gets the DataSource instance. */
+        getDataSource(): DevExpress.data.DataSource;
     }
 }
 
 declare module DevExpress.data {
-    //1048
     /** The DataSource is an object that provides an API for processing data from an underlying store. */
     export class DataSource {
         constructor(data: object);
-        constructor(options: CustomStoreOptions | DataSourceOptions);
-        constructor(store: Store);
         constructor(url: string);
         /** Cancels the load operation with a specific identifier. */
         cancel(): boolean;

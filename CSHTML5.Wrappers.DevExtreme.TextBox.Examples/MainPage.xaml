@@ -8,8 +8,20 @@
     mc:Ignorable="d">
 
     <Canvas>
-        <TextBox:dxTextBox x:Name="TextBox" Canvas.Left="20" Canvas.Top="30"/>
+        <Button x:Name="GetValueButton" Content="Get Value" FontSize="14" Click="GetValue_Click" Canvas.Left="20" Canvas.Top="0"></Button>
+        <TextBlock Text="Text Box With Default Data, Placeholder, and Clear Button" x:Name="TextBlock1" Canvas.Left="20" Canvas.Top="30"/>
+        <TextBox:dxTextBox x:Name="TextBox1" Canvas.Left="20" Canvas.Top="60" Width="300"/>
+
+        <TextBlock Text="TextBox With Sample Telephone Mask" x:Name="TextBlock2" Canvas.Left="20" Canvas.Top="130"/>
+        <TextBox:dxTextBox x:Name="TextBox2" Canvas.Left="20" Canvas.Top="160"/>
+
+        <TextBlock Text="TextBox With Sample Canadian Social Insurance Mask" x:Name="TextBlock3" Canvas.Left="20" Canvas.Top="230"/>
+        <TextBox:dxTextBox x:Name="TextBox3" Canvas.Left="20" Canvas.Top="260"/>
+
+        <TextBlock Text="TextBox With Sample Postal Code and ZIP" x:Name="TextBlock4" Canvas.Left="20" Canvas.Top="330"/>
+        <TextBox:dxTextBox x:Name="TextBox4" Canvas.Left="20" Canvas.Top="360"/>
         
-        <TextBlock Text="Hello World!" x:Name="TextBlock1" Canvas.Left="50" Canvas.Top="70"/>
+        <TextBlock Text="TextBox With Password Mode" x:Name="TextBlock5" Canvas.Left="20" Canvas.Top="430"/>
+        <TextBox:dxTextBox x:Name="TextBox5" Canvas.Left="20" Canvas.Top="460"/>
     </Canvas>
 </Page>
