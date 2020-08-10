@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5B82F191-F34A-4B20-AC45-77FA72E2DB81}</ProjectGuid>
+    <ProjectGuid>{1CA18FA8-823D-420E-B57A-EF1AD634AAFA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CSHTML5.Wrappers.DevExtreme.SelectBox.Examples</RootNamespace>
-    <AssemblyName>CSHTML5.Wrappers.DevExtreme.SelectBox.Examples</AssemblyName>
+    <RootNamespace>CSHTML5.Wrappers.DevExtreme.Switch.Examples</RootNamespace>
+    <AssemblyName>CSHTML5.Wrappers.DevExtreme.Switch.Examples</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsCSharpXamlForHtml5>true</IsCSharpXamlForHtml5>
@@ -18,7 +18,7 @@
     <StartAction>Program</StartAction>
     <StartProgram>
     </StartProgram>
-    <StartArguments>"CSHTML5.Wrappers.DevExtreme.SelectBox.Examples.dll"</StartArguments>
+    <StartArguments>"CSHTML5.Wrappers.DevExtreme.Switch.Examples.dll"</StartArguments>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -60,31 +60,12 @@
     <Content Include="styles\dx.common.css" />
     <Content Include="styles\dx.dark.css" />
     <Content Include="styles\dx.light.css" />
-    <Content Include="styles\icons\dxicons.ttf" />
-    <Content Include="styles\icons\dxicons.woff" />
-    <Content Include="styles\icons\dxicons.woff2" />
-    <Content Include="styles\icons\dxiconsios.ttf" />
-    <Content Include="styles\icons\dxiconsios.woff" />
-    <Content Include="styles\icons\dxiconsios.woff2" />
-    <Content Include="styles\icons\dxiconsmaterial.ttf" />
-    <Content Include="styles\icons\dxiconsmaterial.woff" />
-    <Content Include="styles\icons\dxiconsmaterial.woff2" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CSHTML5.Wrappers.DevExtreme.Common\CSHTML5.Wrappers.DevExtreme.Common.csproj">
-      <Project>{6b18fbdb-8a8f-4b63-8ea2-b30d24695e03}</Project>
-      <Name>CSHTML5.Wrappers.DevExtreme.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CSHTML5.Wrappers.DevExtreme.SelectBox\CSHTML5.Wrappers.DevExtreme.SelectBox.csproj">
-      <Project>{34ad72e5-1da4-411b-8d5b-b72dd714e8ac}</Project>
-      <Name>CSHTML5.Wrappers.DevExtreme.SelectBox</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="styles\fonts\Roboto-300.ttf" />
@@ -99,6 +80,15 @@
     <Content Include="styles\fonts\Roboto-700.ttf" />
     <Content Include="styles\fonts\Roboto-700.woff" />
     <Content Include="styles\fonts\Roboto-700.woff2" />
+    <Content Include="styles\icons\dxicons.ttf" />
+    <Content Include="styles\icons\dxicons.woff" />
+    <Content Include="styles\icons\dxicons.woff2" />
+    <Content Include="styles\icons\dxiconsios.ttf" />
+    <Content Include="styles\icons\dxiconsios.woff" />
+    <Content Include="styles\icons\dxiconsios.woff2" />
+    <Content Include="styles\icons\dxiconsmaterial.ttf" />
+    <Content Include="styles\icons\dxiconsmaterial.woff" />
+    <Content Include="styles\icons\dxiconsmaterial.woff2" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Bridge, Version=17.9.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -117,6 +107,16 @@
   <ItemGroup>
     <None Include="bridge.json" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CSHTML5.Wrappers.DevExtreme.Common\CSHTML5.Wrappers.DevExtreme.Common.csproj">
+      <Project>{6b18fbdb-8a8f-4b63-8ea2-b30d24695e03}</Project>
+      <Name>CSHTML5.Wrappers.DevExtreme.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CSHTML5.Wrappers.DevExtreme.Switch\CSHTML5.Wrappers.DevExtreme.Switch.csproj">
+      <Project>{70d19ccf-dd1f-411b-b0ef-b1d2a4c5ae13}</Project>
+      <Name>CSHTML5.Wrappers.DevExtreme.Switch</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\packages\CSHTML5.2.0.0-alpha71-091\build\CSHTML5.targets" Condition="Exists('..\packages\CSHTML5.2.0.0-alpha71-091\build\CSHTML5.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

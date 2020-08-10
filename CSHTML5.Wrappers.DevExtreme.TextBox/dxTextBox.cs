@@ -262,6 +262,8 @@ namespace DevExtreme_TextBox.DevExpress.ui
 
             SetTextBoxOnValueChanged();
 
+            //note about the comment below: only one occurence of an id should be found in a html document and if there are multiple occurences, only the first can be accessed through its id so we can't use it. (see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id)
+            //we remove the id since we won't use it anymore and it will let us reuse this id for another dxTextBox:
             Interop.ExecuteJavaScript(
                 @"var textBoxContainer = $0; textBoxContainer.id = '';",
                 (new JSObject(this.DomElement)).ToJavaScriptObject()

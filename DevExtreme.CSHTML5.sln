@@ -30,6 +30,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Wrappers.DevExtreme
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Wrappers.DevExtreme.TextBox.Examples", "CSHTML5.Wrappers.DevExtreme.TextBox.Examples\CSHTML5.Wrappers.DevExtreme.TextBox.Examples.csproj", "{0BE5215D-4CD7-47AB-9538-2BF4A7E97762}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Wrappers.DevExtreme.Switch", "CSHTML5.Wrappers.DevExtreme.Switch\CSHTML5.Wrappers.DevExtreme.Switch.csproj", "{70D19CCF-DD1F-411B-B0EF-B1D2A4C5AE13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHTML5.Wrappers.DevExtreme.Switch.Examples", "CSHTML5.Wrappers.DevExtreme.Switch.Examples\CSHTML5.Wrappers.DevExtreme.Switch.Examples.csproj", "{1CA18FA8-823D-420E-B57A-EF1AD634AAFA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +68,14 @@ Global
 		{0BE5215D-4CD7-47AB-9538-2BF4A7E97762}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BE5215D-4CD7-47AB-9538-2BF4A7E97762}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BE5215D-4CD7-47AB-9538-2BF4A7E97762}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70D19CCF-DD1F-411B-B0EF-B1D2A4C5AE13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70D19CCF-DD1F-411B-B0EF-B1D2A4C5AE13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70D19CCF-DD1F-411B-B0EF-B1D2A4C5AE13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70D19CCF-DD1F-411B-B0EF-B1D2A4C5AE13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CA18FA8-823D-420E-B57A-EF1AD634AAFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CA18FA8-823D-420E-B57A-EF1AD634AAFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CA18FA8-823D-420E-B57A-EF1AD634AAFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CA18FA8-823D-420E-B57A-EF1AD634AAFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
