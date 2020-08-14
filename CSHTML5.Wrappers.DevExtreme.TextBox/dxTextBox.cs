@@ -212,6 +212,21 @@ namespace DevExtreme_TextBox.DevExpress.ui
             }
         }
 
+        private String _valueChangeEvent;
+        public String ValueChangeEvent
+        {
+            get
+            {
+                return _valueChangeEvent;
+            }
+            set
+            {
+                _valueChangeEvent = value;
+
+                option("valueChangeEvent", Utils.ToJSObject(_valueChangeEvent));
+            }
+        }
+
         private Boolean _visible;
         public Boolean Visible
         {
@@ -258,9 +273,9 @@ namespace DevExtreme_TextBox.DevExpress.ui
 			UnderlyingJSInstance = Interop.ExecuteJavaScript(@"$0('#textBoxContainer').dxTextBox('instance')", _jQueryVersion);
 
             //Set properties and events globally if needed
-            //ShowClearButton = true;
-
+           //ShowClearButton = true;
             SetTextBoxOnValueChanged();
+            SetTextBoxValueChangeEvent();
 
             //note about the comment below: only one occurence of an id should be found in a html document and if there are multiple occurences, only the first can be accessed through its id so we can't use it. (see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id)
             //we remove the id since we won't use it anymore and it will let us reuse this id for another dxTextBox:
@@ -325,6 +340,11 @@ To do so, please follow the tutorial at: http://www.cshtml5.com"); //todo: put t
             });", UnderlyingJSInstance, textBoxItems);
         }
 
+        private void SetTextBoxValueChangeEvent()
+        {
+            Interop.ExecuteJavaScript(@"$0.option('valueChangeEvent : keyup');", UnderlyingJSInstance);
+        }
+
         private String _currentTextBoxValue;
         public String CurrentTextBoxValue
         {
@@ -343,11 +363,11 @@ To do so, please follow the tutorial at: http://www.cshtml5.com"); //todo: put t
             }
         }
 
-        public void GetCurrentTextBoxItems(String newValue, String oldValue)
+        public void GetCurrentTextBoxItems(String newValue, String previousValue)
         {
             _currentTextBoxValue = newValue;
 
-            _previousTextBoxValue = oldValue;
+            _previousTextBoxValue = previousValue;
         }
     }
 }

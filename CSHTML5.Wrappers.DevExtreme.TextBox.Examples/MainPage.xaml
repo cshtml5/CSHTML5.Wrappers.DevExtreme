@@ -5,8 +5,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:TextBox="clr-namespace:DevExtreme_TextBox.DevExpress.ui;assembly=CSHTML5.Wrappers.DevExtreme.TextBox"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
 
+    xmlns:viewmodels="clr-namespace:CSHTML5.Wrappers.DevExtreme.TextBox.Examples">
+
+    <Page.DataContext>
+        <viewmodels:MyViewModel />
+    </Page.DataContext>
+    
     <Canvas>
         <Button x:Name="GetValueButton" Content="Get Value" FontSize="14" Click="GetValue_Click" Canvas.Left="20" Canvas.Top="0"></Button>
         <TextBlock Text="Text Box With Default Data, Placeholder, and Clear Button" x:Name="TextBlock1" Canvas.Left="20" Canvas.Top="30"/>
@@ -23,5 +29,16 @@
         
         <TextBlock Text="TextBox With Password Mode" x:Name="TextBlock5" Canvas.Left="20" Canvas.Top="430"/>
         <TextBox:dxTextBox x:Name="TextBox5" Canvas.Left="20" Canvas.Top="460"/>
+
+        <TextBlock Text="Text Box With Default Value From ViewModel Property" x:Name="TextBlock6" Canvas.Left="20" Canvas.Top="530"/>
+        <TextBox:dxTextBox x:Name="TextBox6" Canvas.Left="20" Canvas.Top="560" Width="300"/>
+
+        <TextBlock Text="Text Box 7 Interacting With Another Text Box 7b" x:Name="TextBlock7" Canvas.Left="20" Canvas.Top="630"/>
+        <TextBox:dxTextBox KeyUp="TextBox7_KeyUp" x:Name="TextBox7" Canvas.Left="20" Canvas.Top="660" Width="300"/>
+        <TextBox:dxTextBox  x:Name="TextBox7b" Canvas.Left="20" Canvas.Top="700" Width="300"/>
+
+        <TextBlock Text="Another Text Box 8 Interacting With Another Text Box 8b" x:Name="TextBlock8" Canvas.Left="20" Canvas.Top="750"/>
+        <TextBox:dxTextBox KeyUp="TextBox8_KeyUp" x:Name="TextBox8" Canvas.Left="20" Canvas.Top="760" Width="300"/>
+        <TextBox:dxTextBox  x:Name="TextBox8b" Canvas.Left="20" Canvas.Top="800" Width="300"/>
     </Canvas>
 </Page>

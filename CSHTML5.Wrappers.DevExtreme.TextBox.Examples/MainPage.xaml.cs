@@ -30,7 +30,7 @@ namespace CSHTML5.Wrappers.DevExtreme.TextBox.Examples
 
             await TextBox2.JSInstanceLoaded;
             TextBox2.Mask = "+1 (000) 000-0000";
-            TextBox2.MaskInvalidMessage = "A valid phone number is required";       
+            TextBox2.MaskInvalidMessage = "A valid phone number is required";
 
             await TextBox3.JSInstanceLoaded;
             TextBox3.Mask = "000-000-000";
@@ -42,6 +42,14 @@ namespace CSHTML5.Wrappers.DevExtreme.TextBox.Examples
 
             await TextBox5.JSInstanceLoaded;
             TextBox5.Mode = "Password";
+
+            await TextBox6.JSInstanceLoaded;
+            TextBox6.Value = GetViewModel(sender).TestProperty;
+
+            await TextBox7.JSInstanceLoaded;
+            TextBox7.Placeholder = "Type to change text in text box below";      
+
+            await TextBox7b.JSInstanceLoaded;
         }
 
         private async void MainPage_Unloaded(Object sender, RoutedEventArgs e)
@@ -62,6 +70,43 @@ namespace CSHTML5.Wrappers.DevExtreme.TextBox.Examples
             {
                 TextBox1.Value = currentValue.ToString();
                 MessageBox.Show(String.Format("Current Value: {0}, Previous Value: {1}", currentValue.ToString(), previousValue.ToString()));
+            }
+        }
+
+        private MyViewModel GetViewModel(Object sender)
+        {
+            return (MyViewModel)((FrameworkElement)sender).DataContext;
+        }
+
+        private void TextBox7_KeyUp(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        {
+            Object currentValue = TextBox7.CurrentTextBoxValue;
+
+            if (currentValue != null)
+            {
+                TextBox7b.Value = currentValue.ToString();
+            }
+        }
+
+        private void TextBox8_KeyUp(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        {
+            Object currentValue = TextBox8.CurrentTextBoxValue;
+
+            if (currentValue != null)
+            {
+                TextBox8b.Value = currentValue.ToString();
+            }
+        }
+
+        private void TextBox_KeyUpShared(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        {
+            Object currentValue = TextBox7.CurrentTextBoxValue;
+            Object currentValue2 = TextBox8.CurrentTextBoxValue;
+
+            if (currentValue != null || currentValue2 != null)
+            {
+                TextBox7b.Value = currentValue.ToString();
+                TextBox8b.Value = currentValue2.ToString();
             }
         }
     }
