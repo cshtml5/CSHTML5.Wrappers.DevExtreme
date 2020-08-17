@@ -275,7 +275,7 @@ namespace DevExtreme_TextBox.DevExpress.ui
             //Set properties and events globally if needed
            //ShowClearButton = true;
             SetTextBoxOnValueChanged();
-            SetTextBoxValueChangeEvent();
+            SetTextBoxValueChangeEvent("keyup");
 
             //note about the comment below: only one occurence of an id should be found in a html document and if there are multiple occurences, only the first can be accessed through its id so we can't use it. (see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id)
             //we remove the id since we won't use it anymore and it will let us reuse this id for another dxTextBox:
@@ -340,9 +340,9 @@ To do so, please follow the tutorial at: http://www.cshtml5.com"); //todo: put t
             });", UnderlyingJSInstance, textBoxItems);
         }
 
-        private void SetTextBoxValueChangeEvent()
+        private void SetTextBoxValueChangeEvent(String eventType)
         {
-            Interop.ExecuteJavaScript(@"$0.option('valueChangeEvent : keyup');", UnderlyingJSInstance);
+            Interop.ExecuteJavaScript(@"$0.option('valueChangeEvent', $1);", UnderlyingJSInstance, eventType);
         }
 
         private String _currentTextBoxValue;
