@@ -15,6 +15,21 @@ namespace DevExtreme_Switch.DevExpress.ui
 {
 	public partial class dxSwitch : JSComponent
 	{
+		private Boolean _readOnly;
+		public Boolean ReadOnly
+		{
+			get
+			{
+				return _readOnly;
+			}
+			set
+			{
+				_readOnly = value;
+
+				option("readOnly", Utils.ToJSObject(_readOnly));
+			}
+		}
+
 		private Boolean _value;
 		public Boolean Value
 		{

@@ -47,6 +47,21 @@ namespace DevExtreme_SelectBox.DevExpress.ui
             }
         }
 
+        private Boolean _readOnly;
+        public Boolean ReadOnly
+        {
+            get
+            {
+                return _readOnly;
+            }
+            set
+            {
+                _readOnly = value;
+
+                option("readOnly", Utils.ToJSObject(_readOnly));
+            }
+        }
+
         private Boolean _searchEnabled;
         public Boolean SearchEnabled
         {
