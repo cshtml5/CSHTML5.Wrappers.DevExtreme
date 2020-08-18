@@ -1,0 +1,26 @@
+﻿<Page
+    x:Class="CSHTML5.Wrappers.DevExtreme.NumberBox.Examples.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:TextBox="clr-namespace:DevExtreme_NumberBox.DevExpress.ui;assembly=CSHTML5.Wrappers.DevExtreme.NumberBox"
+    mc:Ignorable="d">
+    <Canvas>
+        <Button x:Name="GetValueButton" Content="Get Value" FontSize="14" Click="GetValue_Click" Canvas.Left="20" Canvas.Top="0"></Button>
+        <TextBlock Text="Number Box With Default Data, Placeholder, and Clear Button" x:Name="TextBlock1" Canvas.Left="20" Canvas.Top="30"/>
+        <TextBox:dxNumberBox x:Name="NumberBox1" Canvas.Left="20" Canvas.Top="60" Width="300"/>
+
+        <TextBlock Text="Number Box With Spin Buttons" x:Name="TextBlock2" Canvas.Left="20" Canvas.Top="130"/>
+        <TextBox:dxNumberBox x:Name="NumberBox2" Canvas.Left="20" Canvas.Top="160" Width="300"/>
+
+        <TextBlock Text="Number Box With Fixed Format" x:Name="TextBlock3" Canvas.Left="20" Canvas.Top="230"/>
+        <TextBox:dxNumberBox x:Name="NumberBox3" Canvas.Left="20" Canvas.Top="260" Width="300"/>
+
+        <Button x:Name="AddButton" Content="Add" FontSize="14" Click="AddValue_Click" Canvas.Left="20" Canvas.Top="400"></Button>
+        <TextBlock Text="Add Text Box 4 With Text Box 4b" x:Name="TextBlock4" Canvas.Left="20" Canvas.Top="430"/>
+        <TextBox:dxNumberBox x:Name="NumberBox4" Canvas.Left="20" Canvas.Top="460" Width="300"/>
+        <TextBox:dxNumberBox x:Name="NumberBox4b" Canvas.Left="20" Canvas.Top="500" Width="300"/>
+        <TextBox:dxNumberBox x:Name="NumberBox4c" Canvas.Left="20" Canvas.Top="530" Width="300"/>
+    </Canvas>
+</Page>

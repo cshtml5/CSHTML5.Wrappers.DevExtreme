@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EDBCFFC7-D09C-4580-BC31-399EF3C28A80}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CSHTML5.Wrappers.DevExtreme.NumberBox.Examples</RootNamespace>
+    <AssemblyName>CSHTML5.Wrappers.DevExtreme.NumberBox.Examples</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsCSharpXamlForHtml5>true</IsCSharpXamlForHtml5>
+    <CSharpXamlForHtml5OutputType>Application</CSharpXamlForHtml5OutputType>
+    <IsCshtml5>true</IsCshtml5>
+    <Cshtml5OutputType>Application</Cshtml5OutputType>
+    <StartAction>Program</StartAction>
+    <StartProgram>
+    </StartProgram>
+    <StartArguments>"CSHTML5.Wrappers.DevExtreme.NumberBox.Examples.dll"</StartArguments>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;CSHARP_XAML_FOR_HTML5;CSHTML5;BRIDGE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;CSHARP_XAML_FOR_HTML5;CSHTML5;BRIDGE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Content>
+    <Content Include="scripts\dx.all.js" />
+    <Content Include="scripts\jquery.min.js" />
+    <Content Include="styles\dx.common.css" />
+    <Content Include="styles\dx.dark.css" />
+    <Content Include="styles\dx.light.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="styles\fonts\Roboto-300.ttf" />
+    <Content Include="styles\fonts\Roboto-300.woff" />
+    <Content Include="styles\fonts\Roboto-300.woff2" />
+    <Content Include="styles\fonts\Roboto-400.ttf" />
+    <Content Include="styles\fonts\Roboto-400.woff" />
+    <Content Include="styles\fonts\Roboto-400.woff2" />
+    <Content Include="styles\fonts\Roboto-500.ttf" />
+    <Content Include="styles\fonts\Roboto-500.woff" />
+    <Content Include="styles\fonts\Roboto-500.woff2" />
+    <Content Include="styles\fonts\Roboto-700.ttf" />
+    <Content Include="styles\fonts\Roboto-700.woff" />
+    <Content Include="styles\fonts\Roboto-700.woff2" />
+    <Content Include="styles\icons\dxicons.ttf" />
+    <Content Include="styles\icons\dxicons.woff" />
+    <Content Include="styles\icons\dxicons.woff2" />
+    <Content Include="styles\icons\dxiconsios.ttf" />
+    <Content Include="styles\icons\dxiconsios.woff" />
+    <Content Include="styles\icons\dxiconsios.woff2" />
+    <Content Include="styles\icons\dxiconsmaterial.ttf" />
+    <Content Include="styles\icons\dxiconsmaterial.woff" />
+    <Content Include="styles\icons\dxiconsmaterial.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Bridge, Version=17.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CSHTML5.2.0.0-alpha71-091\lib\net40\Bridge.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CSHTML5, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CSHTML5.2.0.0-alpha71-091\lib\net40\CSHTML5.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CSHTML5.Stubs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CSHTML5.2.0.0-alpha71-091\lib\net40\CSHTML5.Stubs.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bridge.json" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CSHTML5.Wrappers.DevExtreme.Common\CSHTML5.Wrappers.DevExtreme.Common.csproj">
+      <Project>{6b18fbdb-8a8f-4b63-8ea2-b30d24695e03}</Project>
+      <Name>CSHTML5.Wrappers.DevExtreme.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CSHTML5.Wrappers.DevExtreme.NumberBox\CSHTML5.Wrappers.DevExtreme.NumberBox.csproj">
+      <Project>{efef3424-3b79-4244-9037-f34ac65d534b}</Project>
+      <Name>CSHTML5.Wrappers.DevExtreme.NumberBox</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="..\packages\CSHTML5.2.0.0-alpha71-091\build\CSHTML5.targets" Condition="Exists('..\packages\CSHTML5.2.0.0-alpha71-091\build\CSHTML5.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\CSHTML5.2.0.0-alpha71-091\build\CSHTML5.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CSHTML5.2.0.0-alpha71-091\build\CSHTML5.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

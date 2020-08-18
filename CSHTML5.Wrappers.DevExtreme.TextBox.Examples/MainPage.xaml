@@ -6,7 +6,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:TextBox="clr-namespace:DevExtreme_TextBox.DevExpress.ui;assembly=CSHTML5.Wrappers.DevExtreme.TextBox"
     mc:Ignorable="d"
-
     xmlns:viewmodels="clr-namespace:CSHTML5.Wrappers.DevExtreme.TextBox.Examples">
 
     <Page.DataContext>
